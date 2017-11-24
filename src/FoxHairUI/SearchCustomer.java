@@ -14,7 +14,7 @@ import FoxHairDB.DBSelect;
 
 
 public class SearchCustomer extends JDialog implements MouseListener{
-	String[] SearchType = {"고객 번호","이름","연락처","포인트"};
+	String[] SearchType = {"고객 번호","이름","연락처","포인트"}; 
 	String[] realType = {"c_num","name","p_num","point"};
 	JTextField tfSearch = new JTextField();
 	JButton bSearch = new JButton("검색");
@@ -48,7 +48,7 @@ public class SearchCustomer extends JDialog implements MouseListener{
 		scroll.setLocation(55,80);
 
 		tbl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); //테이블 단일 선택 모드 
-		tbl.addMouseListener(this);
+		tbl.addMouseListener(this); //마우스 리스너 등록 
 		
 		add(bSearch);
 		add(tfSearch);
@@ -84,7 +84,8 @@ public class SearchCustomer extends JDialog implements MouseListener{
 		});
 		
 	}
-
+	
+	//두개의 int 값을 입력 받아 현재 선택된 행과 열값을 저장하는 변수를 변경 해주는 함수.
 	void setSelected(int r,int c) {
 		selectedRow = r;
 		selectedCol = c;
@@ -92,14 +93,14 @@ public class SearchCustomer extends JDialog implements MouseListener{
 	
 
 
-
-
+	/*
+	테이블에서 마우스 클릭시 클릭한 행과 열 값을 저장 하는 마우스 클릭 이벤트 처리 
+	*/
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		int r = tbl.getSelectedRow();
 		int c = tbl.getSelectedColumn();
 		setSelected(r,c);
-		System.out.println(selectedRow + " "+ selectedCol);
 		
 	}
 
