@@ -10,17 +10,17 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 
 
-public class UI extends JFrame{
+public class Login extends JFrame{
 	JLabel t,textID,textPw,imageLabel;
 	JButton bLogin,bCancel;
 	JTextField tfID,tfPw;
 	ImageIcon p;
 	Container cp;
 	JButton bSearch;
-	SearchDialog dSearch = new SearchDialog(this,"Search");
+	SearchCustomer dSearch = new SearchCustomer(this,"Search");
 	static Connection c = null;
 	
-	public UI() {
+	public Login() {
 		//프레임 기본 설정 
 		setTitle("FoxHair System");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,7 +39,7 @@ public class UI extends JFrame{
 		t.setSize(250,40);
 		t.setLocation(410,11);
 
-		p = new ImageIcon("F:\\test.png");  //사진 
+		p = new ImageIcon("E:\\foxhair.jpg");  //사진 
 		cp.add(t);
 		imageLabel = new JLabel(p);
 		imageLabel.setSize(393,316);
@@ -118,7 +118,7 @@ public class UI extends JFrame{
 
 
 	public static void main(String[] args){
-		UI jg = new UI();
+		Login jg = new Login();
 		//UI jg = new UI();
 		//SearchDialog jj = new SearchDialog(jg,"22");
 	}

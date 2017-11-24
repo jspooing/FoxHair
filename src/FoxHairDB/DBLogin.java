@@ -10,7 +10,7 @@ public class DBLogin
         	Connection conn = null;
             try {
                
-                String url = "jdbc:oracle:thin:@localhost:1521:XE";
+                String url = "jdbc:oracle:thin:@localhost:1521:xe";
                                            //@ ip주소:포트번호:DB이름
                 Class.forName("oracle.jdbc.driver.OracleDriver");        
                 conn = DriverManager.getConnection(url, user, pw);
