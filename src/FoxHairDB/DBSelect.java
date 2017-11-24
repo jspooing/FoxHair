@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.Data;
+//import javax.xml.crypto.Data;
 
 public class DBSelect
 {
@@ -18,10 +18,11 @@ public class DBSelect
 
 		try {
 
-			String quary = "SELECT * FROM customer Where " + Type + "='" + txtSearch+"'"  ;
+			String quary = "SELECT * FROM customer Where "+Type+"='"+txtSearch+"'"  ;
 
 			pstm = conn.prepareStatement(quary);
 			rs = pstm.executeQuery();
+			
 
 			while(rs.next()){
 				m.addRow(new Object[] {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)});
@@ -44,5 +45,8 @@ public class DBSelect
 		//            }
 		return m;
 	}
-}
+
+	public static String selectCol(Connection conn) {
+		return "a";
+	}}
 

@@ -7,9 +7,18 @@ import java.awt.event.MouseListener;
 import java.util.Vector;
 
 import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.event.MenuKeyListener;
 import javax.swing.table.DefaultTableModel;
 
+import FoxHairDB.DBLogin;
 import FoxHairDB.DBSelect;
 
 
@@ -17,8 +26,10 @@ public class SearchCustomer extends JDialog implements MouseListener{
 	String[] SearchType = {"고객 번호","이름","연락처","포인트"}; 
 	String[] realType = {"c_num","name","p_num","point"};
 	JTextField tfSearch = new JTextField();
+	JTextArea taMemo = new JTextArea(20,3);
 	JButton bSearch = new JButton("검색");
 	JLabel textSearch = new JLabel("검색 :");
+	JLabel textMemo = new JLabel("고객 메모");
 	JComboBox cbSearchType = new JComboBox(SearchType);
 	DefaultTableModel model = new DefaultTableModel(SearchType,0);
 	JTable tbl = new JTable(model);
@@ -29,7 +40,7 @@ public class SearchCustomer extends JDialog implements MouseListener{
 
 	public SearchCustomer(JFrame frame, String title) {
 		super(frame,title);
-		setSize(600,400);
+		setSize(800,400);
 		setLocation(400,200);
 		setLayout(null);
 		//setVisible(true);
@@ -38,14 +49,19 @@ public class SearchCustomer extends JDialog implements MouseListener{
 		tfSearch.setSize(100,20);
 		bSearch.setSize(60,20);
 		textSearch.setSize(50,20);
+		textMemo.setSize(60,20);
 		cbSearchType.setSize(95,20);
 		scroll.setSize(400,250);
+		taMemo.setSize(180,100);
+		
 
 		tfSearch.setLocation(130,40);
 		bSearch.setLocation(330,40);
 		textSearch.setLocation(85,40);
+		textMemo.setLocation(480,80);
 		cbSearchType.setLocation(232,40);
 		scroll.setLocation(55,80);
+		taMemo.setLocation(480,100);
 
 		tbl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); //테이블 단일 선택 모드 
 		tbl.addMouseListener(this); //마우스 리스너 등록 
@@ -54,8 +70,10 @@ public class SearchCustomer extends JDialog implements MouseListener{
 		add(tfSearch);
 		add(bSearch);
 		add(textSearch);
+		add(textMemo);
 		add(cbSearchType);
 		add(scroll);
+		add(taMemo);
 
 		cbSearchType.addActionListener(new ActionListener() {
 
@@ -76,7 +94,7 @@ public class SearchCustomer extends JDialog implements MouseListener{
 				String searchText;
 				searchText = tfSearch.getText();
 				model.setNumRows(0);
-				model = DBSelect.select(Login.c, searchText, strSearchType, model);
+				model = DBSelect.select(Login.c, searchText, strSearchType,model);
 				JTable tbl = new JTable(model);
 				scroll = new JScrollPane(tbl);
 				
@@ -101,6 +119,8 @@ public class SearchCustomer extends JDialog implements MouseListener{
 		int r = tbl.getSelectedRow();
 		int c = tbl.getSelectedColumn();
 		setSelected(r,c);
+		String memo = DBSelect.selectCol(DBLogin.dbConn);
+		taMemo.setText(memo);
 		
 	}
 

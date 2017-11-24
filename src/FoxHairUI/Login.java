@@ -83,6 +83,8 @@ public class Login extends JFrame{
 		bLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				tfID.setText("foxhair");
+				tfPw.setText("1234");
 				c=DBLogin.getConnection(tfID.getText(), tfPw.getText()) ;
 				if(c != null)
 				{
