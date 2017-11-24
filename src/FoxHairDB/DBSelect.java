@@ -25,7 +25,7 @@ public class DBSelect
 			
 
 			while(rs.next()){
-				m.addRow(new Object[] {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)});
+				m.addRow(new Object[] {rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4)});
 			}
 
 		} catch (SQLException sqle) {
@@ -46,7 +46,25 @@ public class DBSelect
 		return m;
 	}
 
-	public static String selectCol(Connection conn) {
-		return "a";
+	public static String selectCol(Connection conn,String Type ,String Search,String outCol) {
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		System.out.println("Select Search : " + Search);
+		String output="";
+		try {
+
+			String quary = "SELECT * FROM customer Where "+Type+"='"+Search+"'"  ;
+			System.out.println( "SELECT * FROM customer Where "+Type+"='"+Search+"'" );
+			pstm = conn.prepareStatement(quary);
+			rs = pstm.executeQuery();
+			output = rs.getString(outCol);
+			
+
+		} catch (SQLException sqle) {
+			System.out.println("SELECT문에서 예외 발생");
+			sqle.printStackTrace();
+		}  
+		
+		return output;
 	}}
 

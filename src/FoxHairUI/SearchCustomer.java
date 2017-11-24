@@ -116,10 +116,14 @@ public class SearchCustomer extends JDialog implements MouseListener{
 	*/
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		String memo = "m";
 		int r = tbl.getSelectedRow();
 		int c = tbl.getSelectedColumn();
 		setSelected(r,c);
-		String memo = DBSelect.selectCol(DBLogin.dbConn);
+		System.out.println(r+"행"+ c+"열 선택 함 값 :" + tbl.getValueAt(r,0) );
+		String c_num = String.valueOf(tbl.getValueAt(r,0));
+		System.out.println("C_NUM = "+c_num);
+	    memo = DBSelect.selectCol(DBLogin.dbConn,"c_num",c_num,"memo");
 		taMemo.setText(memo);
 		
 	}
