@@ -10,18 +10,25 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 
 
+
+
+/*
+ * 로그인 인터페이스 
+ * */
 public class Login extends JFrame{
 	JLabel t,textID,textPw,imageLabel;
 	JButton bLogin,bCancel;
 	JTextField tfID,tfPw;
 	ImageIcon p;
 	Container cp;
-	JButton bSearch;
-	SearchCustomer dSearch = new SearchCustomer(this,"Search");
-	static Connection c = null;
+	JPanel mi = new MainImage();
+	MainUI mainUI = new MainUI(this,mi);
+	static Connection c = null;	  // db와 연결을 위한 객체이며 다른 모든 유저 인터페이스에서 사용하므로 static 선언 하였다. 
 	
 	public Login() {
-		//프레임 기본 설정 
+		/*
+		 * 창 초기화 작업 
+		 * */
 		setTitle("FoxHair System");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -39,7 +46,7 @@ public class Login extends JFrame{
 		t.setSize(250,40);
 		t.setLocation(410,11);
 
-		p = new ImageIcon("E:\\foxhair.jpg");  //사진 
+		p = new ImageIcon("E:\\foxhair.jpg");  //로그인 창의 메인 이미지 
 		cp.add(t);
 		imageLabel = new JLabel(p);
 		imageLabel.setSize(393,316);
@@ -58,7 +65,7 @@ public class Login extends JFrame{
 		textPw.setLocation(435,130);
 		cp.add(textPw);
 
-		tfID = new JTextField("");
+		tfID = new JTextField("");   
 		tfPw = new JTextField("");
 		tfID.setSize(120,20);
 		tfPw.setSize(120,20);
@@ -76,52 +83,54 @@ public class Login extends JFrame{
 		cp.add(bLogin);
 		cp.add(bCancel);
 
-		bSearch = new JButton("Search");
-		bSearch.setSize(80,23);
-		bSearch.setLocation(153,350);
+		
 
 		bLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				tfID.setText("foxhair");
-				tfPw.setText("1234");
-				c=DBLogin.getConnection(tfID.getText(), tfPw.getText()) ;
+			
+				c=DBLogin.getConnection(tfID.getText(), tfPw.getText()) ;   //DB에 로그인 정보를 보내서 로그인을 시도한다. 
+				
+				/*
+				 * 로그인에 성공 할 경우 창 크기를 재조정 하고 메인 화면을 재구성한다. 
+				 * */
 				if(c != null)
 				{
 					cp.removeAll();
+					setSize(800,500);
+					mainUI.setLocation(0,400);
+					mainUI.setSize(800,50);
+					mainUI.setBackground(Color.DARK_GRAY);
+					add(mainUI);
+					add(mi);
 					cp.repaint();
-					setSize(387,450);
-					p=new ImageIcon("F:\\loginsuccess.png");
-					imageLabel = new JLabel(p);
-					imageLabel.setSize(387,324);
-					imageLabel.setLocation(0,0);
-					cp.add(imageLabel);
-					cp.add(bSearch);
-					cp.repaint();
-
-
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "로그인 실패");
 				}
 			}
 		});
+		
+		bCancel.addActionListener(new ActionListener() {
 
-		bSearch.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				dSearch.setVisible(true);
+				// TODO Auto-generated method stub
+				System.exit(0);
+			}
+		});
 
-			}});
 
 		cp.repaint();
+		
+		
 
 	}
 
 
 
-
-
 	public static void main(String[] args){
 		Login jg = new Login();
-		//UI jg = new UI();
-		//SearchDialog jj = new SearchDialog(jg,"22");
+		
 	}
 }

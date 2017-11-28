@@ -3,8 +3,7 @@ import java.sql.*;
 
 public class DBLogin
 {
-    public static Connection dbConn;
-    
+        //로그인 함수이다. 아이디와 비밀번호를 받아와 DB에 접속 한다. 
         public static Connection getConnection(String user,String pw)
         {
         	Connection conn = null;
