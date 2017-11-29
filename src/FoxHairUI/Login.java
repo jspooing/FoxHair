@@ -18,7 +18,8 @@ import java.sql.Connection;
 public class Login extends JFrame{
 	JLabel t,textID,textPw,imageLabel;
 	JButton bLogin,bCancel;
-	JTextField tfID,tfPw;
+	JTextField tfID;
+	JPasswordField tfPw;
 	ImageIcon p;
 	Container cp;
 	JPanel mi = new MainImage();
@@ -66,7 +67,7 @@ public class Login extends JFrame{
 		cp.add(textPw);
 
 		tfID = new JTextField("");   
-		tfPw = new JTextField("");
+		tfPw = new JPasswordField("");
 		tfID.setSize(120,20);
 		tfPw.setSize(120,20);
 		tfID.setLocation(510,93);

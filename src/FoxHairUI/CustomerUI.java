@@ -16,7 +16,14 @@ import FoxHairDB.DBSelect;
 import FoxHairDB.DBUpdate;
 
 
-public class SearchCustomer extends JPanel implements MouseListener{
+
+
+
+
+/*
+ * 고객 관련 패널 
+ * */
+public class CustomerUI extends JPanel implements MouseListener{
 	String[] SearchType = {"고객 번호","이름","연락처","포인트"}; 
 	String[] realType = {"c_num","name","p_num","point"};
 	JTextField tfSearch = new JTextField();
@@ -39,7 +46,7 @@ public class SearchCustomer extends JPanel implements MouseListener{
 		int selectedRow,selectedCol;
 
 
-		public SearchCustomer(JFrame frame) {
+		public CustomerUI(JFrame frame) {
 			mainFrame = frame;
 			setSize(800,400);
 			//setLocation(400,200);

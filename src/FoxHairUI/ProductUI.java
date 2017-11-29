@@ -22,6 +22,11 @@ import FoxHairDB.DBDelete;
 import FoxHairDB.DBSelect;
 import FoxHairDB.DBUpdate;
 
+
+
+/*
+ * 상품 관련 패널 
+ * */
 public class ProductUI extends JPanel{
 	
 		String[] SearchType = {"상품 번호","제품 명","가격","원가","공급 업체","상품 유형","재고"};

@@ -23,6 +23,10 @@ import FoxHairDB.DBInsert;
 import FoxHairDB.DBSelect;
 import FoxHairDB.DBUpdate;
 
+
+/*
+ * 퍈매 다이얼로그에서 사용하는 상품 판매 패널이다. 
+ * */
 public class SellProduct extends JPanel{
 
 	String[] SearchType = {"상품 번호","제품 명","가격","원가","공급 업체","상품 유형","재고"};

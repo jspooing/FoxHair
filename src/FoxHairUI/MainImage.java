@@ -4,6 +4,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/*
+ * 메인 화면 이미지 
+ * */
 public class MainImage extends JPanel{
 	ImageIcon p;
 	JLabel imageLabel;

@@ -24,6 +24,10 @@ import FoxHairDB.DBInsert;
 import FoxHairDB.DBSelect;
 import FoxHairDB.DBUpdate;
 
+
+/*
+ * 판매 다이얼로그에서 사용하는 시술 판매 패널이다. 
+ * */
 public class SellStyling extends JPanel{
 	String[] SearchType = {"주민번호","이름","연락처","월급 계좌","생일","월급"};
 	String[] realType = {"SSN","name","p_num","account","b_day","salary"};

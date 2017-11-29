@@ -20,6 +20,11 @@ import FoxHairDB.DBDelete;
 import FoxHairDB.DBGetRows;
 import FoxHairDB.DBSelect;
 
+
+
+/*
+ * 예약 페널 
+ * */
 public class ReserveUI extends JPanel{
 
 

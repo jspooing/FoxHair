@@ -15,6 +15,10 @@ import javax.swing.JTextField;
 import FoxHairDB.DBGetRows;
 import FoxHairDB.DBInsert;
 
+
+/*
+ * 상품 등록 다이얼로그 
+ * */
 public class ProductRegistDialog extends JDialog{
 	String[] strCols = {"p_num","p_name","price","prime_cost","supplier","p_type"};
 	JTextField tfName,tfPrice,tfPrimeCost,tfType;

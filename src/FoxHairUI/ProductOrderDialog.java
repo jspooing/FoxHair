@@ -11,7 +11,11 @@ import javax.swing.JTextField;
 
 import FoxHairDB.DBGetRows;
 import FoxHairDB.DBUpdate;
-
+/*
+ * 
+ * 
+ * 상품 주문 다이얼로그 
+ * */
 public class ProductOrderDialog extends JFrame{
 	JLabel txtName, txtNum;
 	JTextField tfNum;

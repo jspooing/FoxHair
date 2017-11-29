@@ -18,6 +18,12 @@ import javax.swing.table.DefaultTableModel;
 
 import FoxHairDB.DBSelect;
 
+
+
+
+/*
+ * 매출 관리 패널 
+ * */
 public class SalesUI extends JPanel {
 		JLabel txtYear,txtMonth,txtDay;
 	    String[] colsTransAction= {"ta_num","price","ta_date","type"};

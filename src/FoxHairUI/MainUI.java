@@ -12,9 +12,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
+/*
+ * 메인화면 인터페이스 구성 
+ * */
 public class MainUI extends JPanel {
+	
+	/*
+	 * 컴포넌트 선언 
+	 * */
 	JButton bProduct,bSales,bSearch,bStaff,bReserve;
-	SearchCustomer dSearch ;
+	CustomerUI dSearch ;
 	ProductUI dProduct;
 	StaffUI dStaff;
 	SalesUI dSales;
@@ -22,11 +30,14 @@ public class MainUI extends JPanel {
 	
 	
 	
-	JPanel jpNow = null;
+	JPanel jpNow = null; // 현재 활성화된 패널을 저장하기위한 객체
 	public MainUI(JFrame frame,JPanel image) {
 		setLayout(null);
 		
-		dSearch = new SearchCustomer(frame);
+		/*
+		 * 컴포넌트 생성 
+		 * */
+		dSearch = new CustomerUI(frame);
 		dProduct = new ProductUI(frame);
 		dStaff = new StaffUI(frame);
 		dSales = new SalesUI(frame);
@@ -38,6 +49,10 @@ public class MainUI extends JPanel {
 		bSales = new JButton("매출");
 		bReserve = new JButton("예약 관리");
 		
+		
+		/*
+		 * 컴포넌트 크기및 위치 조정 
+		 * */
 		bSearch.setSize(120,23);
 		bProduct.setSize(120,23);
 		bStaff.setSize(120,23);
@@ -65,6 +80,11 @@ public class MainUI extends JPanel {
 		jpNow = image;
 		
 		
+		/*
+		 * 각 버튼의 기능 구현 
+		 * 버튼에 해당하는 패널이 활성화 되었을때 다시 한번 누르면 메인 이미지가 나타나며, 
+		 * 다른 패널이 활성화 되었을때 누르면 해당 패널이 활성화 된다. 
+		 * */
 		
 		bSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -12,6 +12,10 @@ import javax.swing.JTextField;
 
 import FoxHairDB.DBInsert;
 
+
+/*
+ * 업체 등록 다이얼로그 
+ * */
 public class SupplierRegistDialog extends JDialog{
 	String[] Cols= {"sp_name","ic_person","icp_number"};
 	JLabel txtName,txtIcName,txtIcNum;

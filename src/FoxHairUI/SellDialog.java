@@ -23,6 +23,11 @@ import FoxHairDB.DBGetRows;
 import FoxHairDB.DBSelect;
 
 
+
+
+/*
+ * 판매 다이얼로그 
+ * */
 public class SellDialog extends JDialog{
 	JRadioButton rbProduct,rbStyling;
 	SellProduct jpProduct;

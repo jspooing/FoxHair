@@ -17,6 +17,9 @@ import javax.swing.table.DefaultTableModel;
 
 import FoxHairDB.DBSelect;
 
+/*
+ * 직원 관리 유저 인터페이스 
+ * */
 public class StaffUI extends JPanel{
 	String[] SearchType = {"주민번호","이름","연락처","월급 계좌","생일","월급"};
 	String[] realType = {"SSN","name","p_num","account","b_day","salary"};
